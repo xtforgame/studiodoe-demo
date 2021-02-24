@@ -1,0 +1,95 @@
+.itemt1-1 {
+  float: left !important;
+  width: calc((200% + 5px * -1.25) / 3) !important;
+  padding-top: calc(((200% + 5px * -1.25) / 3) * 1.33333) !important;
+}
+
+.itemt1-2 {
+  float: right !important;
+  width: calc(100% - ((200% + 5px * -1.25) / 3) - 5px) !important;
+  padding-top: calc((100% - ((200% + 5px * -1.25) / 3) - 5px) * 1.33333) !important;
+}
+
+.itemt1-3 {
+  float: right !important;
+  width: calc(100% - ((200% + 5px * -1.25) / 3) - 5px) !important;
+  padding-top: calc((100% - ((200% + 5px * -1.25) / 3) - 5px) * 1.33333) !important;
+}
+
+.itemt2-1 {
+  float: left !important;
+  width: calc((200% + 5px * -1.25) / 3) !important;
+  padding-top: calc(((200% + 5px * -1.25) / 3) * 1.33333) !important;
+}
+
+.itemt2-2 {
+  float: right !important;
+  width: calc(100% - ((200% + 5px * -1.25) / 3) - 5px) !important;
+  padding-top: calc((100% - ((200% + 5px * -1.25) / 3) - 5px) * 1.33333) !important;
+}
+
+.itemt2-3 {
+  float: right !important;
+  width: calc(100% - ((200% + 5px * -1.25) / 3) - 5px) !important;
+  padding-top: calc((100% - ((200% + 5px * -1.25) / 3) - 5px) * 1.33333) !important;
+}
+
+.itemt3 {
+  float: left !important;
+  width: 100% !important;
+  padding-top: calc(((200% + 5px * -1.25) / 3) * 1.33333) !important;
+}
+
+.itemt1-2 .item-title .name,
+.itemt1-2 .item-link .item-title .name,
+.itemt1-3 .item-title .name,
+.itemt1-3 .item-link .item-title .name {
+    font-size: 20px !important;
+}
+
+.itemt1-1 .item-title .name,
+.itemt1-1 .item-link .item-title .name,
+.itemt3 .item-title .name,
+.itemt3 .item-link .item-title .name {
+    font-size: 32px !important;
+}
+
+.az-header {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  width: 100%;
+}
+.az-header-content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  background-color: white;
+  z-index: 900;
+  height: 64px;
+  font-size: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  min-width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .az-header {
+    display: flex;
+  }
+  .az-header-content {
+    min-width: 950px;
+    max-width: 950px;
+  }
+}
+
+@media (min-width: 1280px){
+  .az-header-content {
+    min-width: 1190px;
+    max-width: 1190px;
+  }
+}
