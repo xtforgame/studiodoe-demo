@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-TW" ng-app="recipes_index" xmlns="https://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:og="https://ogp.me/ns#">
+
+  <head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# nudeshoptw: https://ogp.me/ns/fb/nudeshoptw#">
+    <script>
+      window.NREUM || (NREUM = {});
+      NREUM.info = {
+        "beacon": "bam.nr-data.net",
+        "errorBeacon": "bam.nr-data.net",
+        "licenseKey": "aba3cc4d0f",
+        "applicationID": "3260893",
+        "transactionName": "dFgMTRZWVQ1VREoUEVhTF1oQShYSWFkS",
+        "queueTime": 0,
+        "applicationTime": 46,
+        "agent": ""
+      }
+    </script>
+    <script>
+      (window.NREUM || (NREUM = {})).loader_config = {
+        licenseKey: "aba3cc4d0f",
+        applicationID: "3260893"
+      };
+      window.NREUM || (NREUM = {}), __nr_require = function(e, t, n) {
+        function r(n) {
+          if (!t[n]) {
+            var i = t[n] = {
+              exports: {}
+            };
+            e[n][0].call(i.exports, function(t) {
+              var i = e[n][1][t];
+              return r(i || t)
+            }, i, i.exports)
+          }
+          return t[n].exports
+        }
+        if ("function" == typeof __nr_require) return __nr_require;
+        for (var i = 0; i < n.length; i++) r(n[i]);
+        return r
+      }({
+        1: [function(e, t, n) {
+          function r() {}
+
+          function i(e, t, n) {
+            return function() {
+              return o(e, [u.now()].concat(c(arguments)), t ? null : this, n), t ? void 0 : this
+            }
+          }
+          var o = e("handle"),
+            a = e(6),
+            c = e(7),
+            f = e("ee").get("tracer"),
+            u = e("loader"),
+            s = NREUM;
+          "undefined" == typeof window.newrelic && (newrelic = s);
+          var d = ["setPageViewName", "setCustomAttribute", "setErrorHandler", "finished", "addToTrace", "inlineHit", "addRelease"],
+            p = "api-",
+            l = p + "ixn-";
+          a(d, function(e, t) {
+            s[t] = i(p + t, !0, "api")
+          }), s.addPageAction = i(p + "addPageAction", !0), s.setCurrentRouteName = i(p + "routeName", !0), t.exports = newrelic, s.interaction = function() {
+            return (new r).get()
+          };
+          var m = r.prototype = {
+            createTracer: function(e, t) {
+              var n = {},
+                r = this,
+                i = "function" == typeof t;
+              return o(l + "tracer", [u.now(), e, n], r),
+                function() {
+                  if (f.emit((i ? "" : "no-") + "fn-start", [u.now(), r, i], n), i) try {
+                    return t.apply(this, arguments)
+                  } catch (e) {
+                    throw f.emit("fn-err", [arguments, this, e], n), e
+                  } finally {
+                    f.emit("fn-end", [u.now()], n)
+                  }
+                }
+            }
+          };
+          a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function(e, t) {
+            m[t] = i(l + t)
+          }), newrelic.noticeError = function(e, t) {
+            "string" == typeof e && (e = new Error(e)), o("err", [e, u.now(), !1, t])
+          }
+        }, {}],
+        2: [function(e, t, n) {
+          function r() {
+            return c.exists && performance.now ? Math.round(performance.now()) : (o = Math.max((new Date).getTime(), o)) - a
+          }
+
+          function i() {
+            return o
+          }
+          var o = (new Date).getTime(),
+            a = o,
+            c = e(8);
+          t.exports = r, t.exports.offset = a, t.exports.getLastTimestamp = i
+        }, {}],
+        3: [function(e, t, n) {
+          function r(e, t) {
+            var n = e.getEntries();
+            n.forEach(function(e) {
+              "first-paint" === e.name ? d("timing", ["fp", Math.floor(e.startTime)]) : "first-contentful-paint" === e.name && d("timing", ["fcp", Math.floor(e.startTime)])
+            })
+          }
+
+          function i(e, t) {
+            var n = e.getEntries();
+            n.length > 0 && d("lcp", [n[n.length - 1]])
+          }
+
+          function o(e) {
+            e.getEntries().forEach(function(e) {
+              e.hadRecentInput || d("cls", [e])
+            })
+          }
+
+          function a(e) {
+            if (e instanceof m && !g) {
+              var t = Math.round(e.timeStamp),
+                n = {
+                  type: e.type
+                };
+              t <= p.now() ? n.fid = p.now() - t : t > p.offset && t <= Date.now() ? (t -= p.offset, n.fid = p.now() - t) : t = p.now(), g = !0, d("timing", ["fi", t, n])
+            }
+          }
+
+          function c(e) {
+            d("pageHide", [p.now(), e])
+          }
+          if (!("init" in NREUM && "page_view_timing" in NREUM.init && "enabled" in NREUM.init.page_view_timing && NREUM.init.page_view_timing.enabled === !1)) {
+            var f, u, s, d = e("handle"),
+              p = e("loader"),
+              l = e(5),
+              m = NREUM.o.EV;
+            if ("PerformanceObserver" in window && "function" == typeof window.PerformanceObserver) {
+              f = new PerformanceObserver(r);
+              try {
+                f.observe({
+                  entryTypes: ["paint"]
+                })
+              } catch (v) {}
+              u = new PerformanceObserver(i);
+              try {
+                u.observe({
+                  entryTypes: ["largest-contentful-paint"]
+                })
+              } catch (v) {}
+              s = new PerformanceObserver(o);
+              try {
+                s.observe({
+                  type: "layout-shift",
+                  buffered: !0
+                })
+              } catch (v) {}
+            }
+            if ("addEventListener" in document) {
+              var g = !1,
+                w = ["click", "keydown", "mousedown", "pointerdown", "touchstart"];
+              w.forEach(function(e) {
+                document.addEventListener(e, a, !1)
+              })
+            }
+            l(c)
+          }
+        }, {}],
+        4: [function(e, t, n) {
+          function r(e, t) {
+            if (!i) return !1;
+            if (e !== i) return !1;
+            if (!t) return !0;
+            if (!o) return !1;
+            for (var n = o.split("."), r = t.split("."), a = 0; a < r.length; a++)
+              if (r[a] !== n[a]) return !1;
+            return !0
+          }
+          var i = null,
+            o = null,
+            a = /Version\/(\S+)\s+Safari/;
+          if (navigator.userAgent) {
+            var c = navigator.userAgent,
+              f = c.match(a);
+            f && c.indexOf("Chrome") === -1 && c.indexOf("Chromium") === -1 && (i = "Safari", o = f[1])
+          }
+          t.exports = {
+            agent: i,
+            version: o,
+            match: r
+          }
+        }, {}],
+        5: [function(e, t, n) {
+          function r(e) {
+            function t() {
+              e(a && document[a] ? document[a] : document[i] ? "hidden" : "visible")
+            }
+            "addEventListener" in document && o && document.addEventListener(o, t, !1)
+          }
+          t.exports = r;
+          var i, o, a;
+          "undefined" != typeof document.hidden ? (i = "hidden", o = "visibilitychange", a = "visibilityState") : "undefined" != typeof document.msHidden ? (i = "msHidden", o = "msvisibilitychange") : "undefined" != typeof document.webkitHidden && (i = "webkitHidden", o = "webkitvisibilitychange", a = "webkitVisibilityState")
+        }, {}],
+        6: [function(e, t, n) {
+          function r(e, t) {
+            var n = [],
+              r = "",
+              o = 0;
+            for (r in e) i.call(e, r) && (n[o] = t(r, e[r]), o += 1);
+            return n
+          }
+          var i = Object.prototype.hasOwnProperty;
+          t.exports = r
+        }, {}],
+        7: [function(e, t, n) {
+          function r(e, t, n) {
+            t || (t = 0), "undefined" == typeof n && (n = e ? e.length : 0);
+            for (var r = -1, i = n - t || 0, o = Array(i < 0 ? 0 : i); ++r < i;) o[r] = e[t + r];
+            return o
+          }
+          t.exports = r
+        }, {}],
+        8: [function(e, t, n) {
+          t.exports = {
+            exists: "undefined" != typeof window.performance && window.performance.timing && "undefined" != typeof window.performance.timing.navigationStart
+          }
+        }, {}],
+        ee: [function(e, t, n) {
+          function r() {}
+
+          function i(e) {
+            function t(e) {
+              return e && e instanceof r ? e : e ? u(e, f, a) : a()
+            }
+
+            function n(n, r, i, o, a) {
+              if (a !== !1 && (a = !0), !l.aborted || o) {
+                e && a && e(n, r, i);
+                for (var c = t(i), f = v(n), u = f.length, s = 0; s < u; s++) f[s].apply(c, r);
+                var p = d[h[n]];
+                return p && p.push([b, n, r, c]), c
+              }
+            }
+
+            function o(e, t) {
+              y[e] = v(e).concat(t)
+            }
+
+            function m(e, t) {
+              var n = y[e];
+              if (n)
+                for (var r = 0; r < n.length; r++) n[r] === t && n.splice(r, 1)
+            }
+
+            function v(e) {
+              return y[e] || []
+            }
+
+            function g(e) {
+              return p[e] = p[e] || i(n)
+            }
+
+            function w(e, t) {
+              s(e, function(e, n) {
+                t = t || "feature", h[n] = t, t in d || (d[t] = [])
+              })
+            }
+            var y = {},
+              h = {},
+              b = {
+                on: o,
+                addEventListener: o,
+                removeEventListener: m,
+                emit: n,
+                get: g,
+                listeners: v,
+                context: t,
+                buffer: w,
+                abort: c,
+                aborted: !1
+              };
+            return b
+          }
+
+          function o(e) {
+            return u(e, f, a)
+          }
+
+          function a() {
+            return new r
+          }
+
+          function c() {
+            (d.api || d.feature) && (l.aborted = !0, d = l.backlog = {})
+          }
+          var f = "nr@context",
+            u = e("gos"),
+            s = e(6),
+            d = {},
+            p = {},
+            l = t.exports = i();
+          t.exports.getOrSetContext = o, l.backlog = d
+        }, {}],
+        gos: [function(e, t, n) {
+          function r(e, t, n) {
+            if (i.call(e, t)) return e[t];
+            var r = n();
+            if (Object.defineProperty && Object.keys) try {
+              return Object.defineProperty(e, t, {
+                value: r,
+                writable: !0,
+                enumerable: !1
+              }), r
+            } catch (o) {}
+            return e[t] = r, r
+          }
+          var i = Object.prototype.hasOwnProperty;
+          t.exports = r
+        }, {}],
+        handle: [function(e, t, n) {
+          function r(e, t, n, r) {
+            i.buffer([e], r), i.emit(e, t, n)
+          }
+          var i = e("ee").get("handle");
+          t.exports = r, r.ee = i
+        }, {}],
+        id: [function(e, t, n) {
+          function r(e) {
+            var t = typeof e;
+            return !e || "object" !== t && "function" !== t ? -1 : e === window ? 0 : a(e, o, function() {
+              return i++
+            })
+          }
+          var i = 1,
+            o = "nr@id",
+            a = e("gos");
+          t.exports = r
+        }, {}],
+        loader: [function(e, t, n) {
+          function r() {
+            if (!x++) {
+              var e = b.info = NREUM.info,
+                t = p.getElementsByTagName("script")[0];
+              if (setTimeout(u.abort, 3e4), !(e && e.licenseKey && e.applicationID && t)) return u.abort();
+              f(y, function(t, n) {
+                e[t] || (e[t] = n)
+              });
+              var n = a();
+              c("mark", ["onload", n + b.offset], null, "api"), c("timing", ["load", n]);
+              var r = p.createElement("script");
+              r.src = "https://" + e.agent, t.parentNode.insertBefore(r, t)
+            }
+          }
+
+          function i() {
+            "complete" === p.readyState && o()
+          }
+
+          function o() {
+            c("mark", ["domContent", a() + b.offset], null, "api")
+          }
+          var a = e(2),
+            c = e("handle"),
+            f = e(6),
+            u = e("ee"),
+            s = e(4),
+            d = window,
+            p = d.document,
+            l = "addEventListener",
+            m = "attachEvent",
+            v = d.XMLHttpRequest,
+            g = v && v.prototype;
+          NREUM.o = {
+            ST: setTimeout,
+            SI: d.setImmediate,
+            CT: clearTimeout,
+            XHR: v,
+            REQ: d.Request,
+            EV: d.Event,
+            PR: d.Promise,
+            MO: d.MutationObserver
+          };
+          var w = "" + location,
+            y = {
+              beacon: "bam.nr-data.net",
+              errorBeacon: "bam.nr-data.net",
+              agent: "js-agent.newrelic.com/nr-1198.min.js"
+            },
+            h = v && g && g[l] && !/CriOS/.test(navigator.userAgent),
+            b = t.exports = {
+              offset: a.getLastTimestamp(),
+              now: a,
+              origin: w,
+              features: {},
+              xhrWrappable: h,
+              userAgent: s
+            };
+          e(1), e(3), p[l] ? (p[l]("DOMContentLoaded", o, !1), d[l]("load", r, !1)) : (p[m]("onreadystatechange", i), d[m]("onload", r)), c("mark", ["firstbyte", a.getLastTimestamp()], null, "api");
+          var x = 0
+        }, {}],
+        "wrap-function": [function(e, t, n) {
+          function r(e, t) {
+            function n(t, n, r, f, u) {
+              function nrWrapper() {
+                var o, a, s, p;
+                try {
+                  a = this, o = d(arguments), s = "function" == typeof r ? r(o, a) : r || {}
+                } catch (l) {
+                  i([l, "", [o, a, f], s], e)
+                }
+                c(n + "start", [o, a, f], s, u);
+                try {
+                  return p = t.apply(a, o)
+                } catch (m) {
+                  throw c(n + "err", [o, a, m], s, u), m
+                } finally {
+                  c(n + "end", [o, a, p], s, u)
+                }
+              }
+              return a(t) ? t : (n || (n = ""), nrWrapper[p] = t, o(t, nrWrapper, e), nrWrapper)
+            }
+
+            function r(e, t, r, i, o) {
+              r || (r = "");
+              var c, f, u, s = "-" === r.charAt(0);
+              for (u = 0; u < t.length; u++) f = t[u], c = e[f], a(c) || (e[f] = n(c, s ? f + r : r, i, f, o))
+            }
+
+            function c(n, r, o, a) {
+              if (!m || t) {
+                var c = m;
+                m = !0;
+                try {
+                  e.emit(n, r, o, t, a)
+                } catch (f) {
+                  i([f, n, r, o], e)
+                }
+                m = c
+              }
+            }
+            return e || (e = s), n.inPlace = r, n.flag = p, n
+          }
+
+          function i(e, t) {
+            t || (t = s);
+            try {
+              t.emit("internal-error", e)
+            } catch (n) {}
+          }
+
+          function o(e, t, n) {
+            if (Object.defineProperty && Object.keys) try {
+              var r = Object.keys(e);
+              return r.forEach(function(n) {
+                Object.defineProperty(t, n, {
+                  get: function() {
+                    return e[n]
+                  },
+                  set: function(t) {
+                    return e[n] = t, t
+                  }
+                })
+              }), t
+            } catch (o) {
+              i([o], n)
+            }
+            for (var a in e) l.call(e, a) && (t[a] = e[a]);
+            return t
+          }
+
+          function a(e) {
+            return !(e && e instanceof Function && e.apply && !e[p])
+          }
+
+          function c(e, t) {
+            var n = t(e);
+            return n[p] = e, o(e, n, s), n
+          }
+
+          function f(e, t, n) {
+            var r = e[t];
+            e[t] = c(r, n)
+          }
+
+          function u() {
+            for (var e = arguments.length, t = new Array(e), n = 0; n < e; ++n) t[n] = arguments[n];
+            return t
+          }
+          var s = e("ee"),
+            d = e(7),
+            p = "nr@original",
+            l = Object.prototype.hasOwnProperty,
+            m = !1;
+          t.exports = r, t.exports.wrapFunction = c, t.exports.wrapInPlace = f, t.exports.argsToArray = u
+        }, {}]
+      }, {}, ["loader"]);
+    </script>
+    <meta content="0E62001C48575FB565501431616F4DCC" name="msvalidate.01" />
+    <meta content="8FQpEBaCRPo-nS1pv8VLrmxL9cDIQ2LXKoma2zZp4WQ" name="google-site-verification" />
+    <meta content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport" />
+    <title>柔滑彈力修身Tee(現貨) (灰) (F) | studiodoe</title>
+    <meta name="description" content="自訂款 時髦修身版型 合身不緊身 手感極佳彈性好 面料柔滑舒適 偏高的文字位置讓視覺上更修飾身型 ...">
+    <link rel="canonical" href="http://localhost:3000/products/4479">
+    <meta property="og:site_name" content="studiodoe">
+    <meta property="og:title" content="柔滑彈力修身Tee(現貨) (灰) (F)">
+    <meta property="og:description" content="自訂款
+時髦修身版型
+合身不緊身
+手感極佳彈性好
+面料柔滑舒適
+偏高的文字位置讓視覺上更修飾身型
+...">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:3000/products/4479">
+    <meta property="og:image" content="https://d1pk1qje583qaz.cloudfront.net/uploads/product/primary_pic/000/004/479/normal_pad_67c22fdc-a150-48b3-99c6-8804c746c431.jpg">
+    <meta property="fb:app_id" content="674757525886490">
+    <link data-turbolinks-track="reload" href="//d1pk1qje583qaz.cloudfront.net/assets/favicon-394220ec212a2634e9863bfc48ffde0c451fddace0137e1d88cb87ee2fa4b168.ico" rel="shortcut icon" />
+    <link data-turbolinks-track="reload" href="//d1pk1qje583qaz.cloudfront.net/assets/apple-touch-icon-38bd9e3839409b844f8735e76b81627bb4b6d0959123de1ac6692726c69fea15.png" rel="apple-touch-icon" />
+    <link data-turbolinks-track="reload" href="//d1pk1qje583qaz.cloudfront.net/assets/apple-touch-icon-precomposed-38bd9e3839409b844f8735e76b81627bb4b6d0959123de1ac6692726c69fea15.png" rel="apple-touch-icon-precomposed" />
+    <link data-turbolinks-track="reload" href="//d1pk1qje583qaz.cloudfront.net/assets/apple-touch-icon-120x120-precomposed-34c743ab18fffe906cba0bb84df75039917a56896643bcabbdc8006fb17c1037.png" rel="apple-touch-icon-120x120-precomposed" />
+    <link rel="stylesheet" media="screen" href="//d1pk1qje583qaz.cloudfront.net/assets/application-1efe496fea56ef4c9922575a2fa84e7a.css" data-turbolinks-track="reload" />
+    <link rel="stylesheet" href="../local/main.css" />
+    <script src="//d1pk1qje583qaz.cloudfront.net/assets/application-57174ef69c56a77555943ae00332c0484e9a7c95206a5eb7046a2581354b005f.js" data-turbolinks-track="reload"></script>
+    <script src="//d1pk1qje583qaz.cloudfront.net/assets/application-8d7d3899b90834c9bc53.js" data-turbolinks-track="reload"></script>
+    <script>
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-WCTKWKD')
+    </script>
+    <script>
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-W25LN4')
+    </script>
+    <style>
+      body {
+        background: #F5F5F5;
+      }
+      .container {
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 10vh;
+        width: 100%;
+        max-width: 480px;
+      }
+      h1 {
+        line-height: 1.5;
+        font-size: 22px;
+      }
+      h2 {
+        font-weight: normal;
+        font-size: 18px;
+      }
+      a {
+        color: #00BAFF;
+      }
+      a:hover {
+        color: #008BBF;
+      }
+      .divider {
+        margin: 5vh auto;
+        height: 0;
+        border: 0;
+        border-top: 1px solid #CCC;
+      }
+      .augurio-collapse {
+        /* background: #FFF; */
+      }
+      @media screen and (max-width: 480px){
+        .container {
+          padding-right: 12px;
+          padding-left: 12px;
+        }
+      }
+      
+    </style>
+  </head>
+
+  <body class="products show"><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCTKWKD" style="display:none;visibility:hidden" width="0"></iframe></noscript><noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-W25LN4" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+    <div class="page">
+      <header class="nav">
+        <div class="nav-inner">
+          <div class="logo"><a href="/">studiodoe</a></div><a class="main-nav-trigger" role="button" tabIndex="0">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </a>
+          <nav class="main-nav">
+            <h2>Main Navigation</h2>
+            <ul>
+              <li><a href="/products/newin">new in</a></li>
+              <li><button class="accordion-menu-trigger" type="button">shop all</button>
+                <ul class="accordion-menu">
+                  <li class="accordion-menu__cell"><a href="/products/actived">all</a></li>
+                  <li class="accordion-menu__cell"><a href="/typs/2">tops</a></li>
+                  <li class="accordion-menu__cell"><a href="/typs/4">bottoms</a></li>
+                  <li class="accordion-menu__cell"><a href="/typs/5">dresses</a></li>
+                  <li class="accordion-menu__cell"><a href="/typs/1">coats</a></li>
+                  <li class="accordion-menu__cell"><a href="/typs/3">vests</a></li>
+                  <li class="accordion-menu__cell"><a href="/typs/11">jumpsuit</a></li>
+                  <li class="accordion-menu__cell"><a href="/typs/6">shoes</a></li>
+                  <li class="accordion-menu__cell"><a href="/typs/7">accessories</a></li>
+                </ul>
+              </li>
+              <li><a href="/products/instock">in stock</a></li>
+              <li><a class="sale" href="/products/past_actived">sale</a></li>
+              <li class="divider"></li>
+              <li><a href="/about">about</a></li>
+              <li><a href="/delivery">delivery</a></li>
+              <li><a target="_blank" href="https://m.me/studiodoe">contact us</a></li>
+              <li><a target="_blank" href="https://www.facebook.com/studiodoe">facebook</a></li>
+              <li class="divider hide-on-desktop"></li>
+              <li class="hide-on-desktop"><a href="/faqs">FAQs</a></li>
+              <li class="hide-on-desktop"><a class="main-nav__sign-in" href="/users/sign_in">Sign in</a></li>
+            </ul>
+          </nav>
+          <nav class="shop-nav">
+            <h2>Shop Navigation</h2>
+            <ul>
+              <li><a class="shop-nav__cart " href="/carts">0</a></li>
+              <li class="show-on-desktop"><a href="/faqs">FAQs</a></li>
+              <li class="show-on-desktop divider"></li>
+              <li class="show-on-desktop"><a href="/users/sign_in">Sign in</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main class="main" role="main">
+        <div data-behavior="flashes"></div>
+        <div class="hide" data-log-viewed-content-event="[4479,&quot;tops&quot;,&quot;TWD&quot;,780]"></div>
+        <div class="product-wrapper" id="gallery">
+          <div class="main-content article"><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/248/large_a893af86-bdb3-4588-9c91-4290cbd48612.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/248/large_a893af86-bdb3-4588-9c91-4290cbd48612.jpg" /></a><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/249/large_0c4665f2-df82-4cec-a3e0-3ca810b06d93.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/249/large_0c4665f2-df82-4cec-a3e0-3ca810b06d93.jpg" /></a><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/250/large_421a9319-32f4-4d9d-a08b-98b11cf8e193.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/250/large_421a9319-32f4-4d9d-a08b-98b11cf8e193.jpg" /></a><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/251/large_7929c463-4c7a-4a14-96c1-6aa6f03b65d9.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/251/large_7929c463-4c7a-4a14-96c1-6aa6f03b65d9.jpg" /></a><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/252/large_887ffc8c-3300-4434-9f06-909b954a38a1.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/252/large_887ffc8c-3300-4434-9f06-909b954a38a1.jpg" /></a><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/253/large_4b3a63f7-6c1f-48c9-9749-372c97dffebd.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/253/large_4b3a63f7-6c1f-48c9-9749-372c97dffebd.jpg" /></a><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/254/large_9cb624db-c37d-409f-a00f-9610e85cc042.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/254/large_9cb624db-c37d-409f-a00f-9610e85cc042.jpg" /></a><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/255/large_d15a7496-9db2-4ff3-964e-9f310c14d95f.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/255/large_d15a7496-9db2-4ff3-964e-9f310c14d95f.jpg" /></a><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/256/large_c1e454e3-16c0-4651-8f5f-1a1cf9325792.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/256/large_c1e454e3-16c0-4651-8f5f-1a1cf9325792.jpg" /></a><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/257/large_8a9786a8-ae22-4553-9eef-30ad6219b861.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/257/large_8a9786a8-ae22-4553-9eef-30ad6219b861.jpg" /></a><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/258/large_77352f78-c060-427a-b2e8-b9e7d059e64b.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/258/large_77352f78-c060-427a-b2e8-b9e7d059e64b.jpg" /></a><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/259/large_3828d0e1-700f-41cd-b6c5-4c1e4de425b0.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/259/large_3828d0e1-700f-41cd-b6c5-4c1e4de425b0.jpg" /></a><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/260/large_2e27f282-0403-4203-95ab-f65140d05b7b.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/260/large_2e27f282-0403-4203-95ab-f65140d05b7b.jpg" /></a><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/261/large_7a10a2e2-96d6-4ad7-ad31-e91a9f4a57ef.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/261/large_7a10a2e2-96d6-4ad7-ad31-e91a9f4a57ef.jpg" /></a><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/526/large_5a3864cc-ad7d-439e-a81e-6ca26f595086.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/526/large_5a3864cc-ad7d-439e-a81e-6ca26f595086.jpg" /></a><a class="gallery-photo" href="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/527/large_9be66830-4bb9-4c36-aca6-28f1e1f9e1e6.jpg"><img class="lazy" data-src="//d1pk1qje583qaz.cloudfront.net/uploads/pic/file/000/061/527/large_9be66830-4bb9-4c36-aca6-28f1e1f9e1e6.jpg" /></a></div>
+          <div class="sidebar">
+            <div class="sidebar-block">
+              <h2 class="sidebar-title">柔滑彈力修身Tee(現貨)</h2>
+              <p class="product-price">NT$ 780.</p>
+            </div>
+            <div class="sidebar-affix">
+              <div class="sidebar-horizontal-blocks">
+                <div class="sidebar-block">
+                  <div class="sidebar-sub-title">Size</div>
+                  <ul class="product-size">
+                    <li><a class="size current" title="F" href="/products/4479?ref=spec"><span>F</span>
+                        <ul class="size-hover-message">
+                          <li>胸寬: 42cm
+                          </li>
+                          <li>腰寬: 42cm
+                          </li>
+                          <li>肩寬: 36cm
+                          </li>
+                          <li>袖長: 16.5cm
+                          </li>
+                          <li>連肩袖長: 35.5cm
+                          </li>
+                          <li>衣長: 63cm</li>
+                        </ul>
+                      </a></li>
+                  </ul>
+                </div>
+                <div class="sidebar-block">
+                  <div class="sidebar-sub-title">Color</div>
+                  <ul class="product-color">
+                    <li><a style="background-color: rgb(236, 236, 236)" title="白" href="/products/4480?ref=spec"></a></li>
+                    <li class="current"><a style="background-color: rgb(99, 99, 99)" title="灰" href="/products/4479?ref=spec"></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="sidebar-block">
+                <div class="form-action"><a class="button action" rel="nofollow" data-log-add-to-cart-event="[4479,&quot;tops&quot;,&quot;TWD&quot;,780]" data-remote="true" data-method="post" href="/carts/add_product?product_id=4479">Add To Bag</a></div>
+              </div>
+            </div>
+            <section class="augurio-collapse">
+              <!-- 一個 .collapse 是一組-->
+              <div class="collapse">
+                <div class="title-box">
+                  <div class="title">Product Description</div>
+                  <div class="icons"><span></span><span></span></div>
+                </div>
+                <div class="contents-box">
+                  <div class="contents">
+                    <div class="sidebar-block">
+                      <div class="product-fabric">
+                        <div class="sidebar-sub-title">Fabric</div>
+                        <ul class="fabric-group">
+                          <li>polyester 62%
+                          </li>
+                          <li>rayon 33%
+                          </li>
+                          <li>spandex 5%</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="sidebar-block">
+                      <p>自訂款<br />
+                        時髦修身版型<br />
+                        合身不緊身<br />
+                        手感極佳彈性好<br />
+                        面料柔滑舒適<br />
+                        偏高的文字位置讓視覺上更修飾身型</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="collapse">
+                <div class="title-box">
+                  <div class="title">Size Table</div>
+                  <div class="icons"><span></span><span></span></div>
+                </div>
+                <div class="contents-box">
+                  <div class="contents">
+                    <div class="sidebar-block">
+                      <p>自訂款<br />
+                        時髦修身版型<br />
+                        合身不緊身<br />
+                        手感極佳彈性好<br />
+                        面料柔滑舒適<br />
+                        偏高的文字位置讓視覺上更修飾身型</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="collapse">
+                <div class="title-box">
+                  <div class="title">Model Reference</div>
+                  <div class="icons"><span></span><span></span></div>
+                </div>
+                <div class="contents-box">
+                  <div class="contents">
+                    <div class="sidebar-block">
+                      <p>試穿報告</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div><!-- Facebook SDK for JavaScript -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: '674757525886490',
+          xfbml: true,
+          autoLogAppEvents: true,
+          version: 'v2.12'
+        });
+        FB.AppEvents.logPageView();
+        $(document).trigger('facebook:load')
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+          return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+
+        // 寫入各 .content-box 的高，然後高度設成 0
+        const contents = document.querySelectorAll('.augurio-collapse .contents-box');
+        Array.prototype.forEach.call(contents, c => {
+          c.dataset.height = c.offsetHeight;
+          c.setAttribute('style', 'height: 0');
+        });
+
+        // .title-box 被點擊時，加入 .active， .content-box的高度抓 data-height 的
+        const titles = document.querySelectorAll('.title-box');
+        Array.prototype.forEach.call(titles, t => {
+          t.addEventListener('click', e => {
+            e.target.classList.toggle('active'); // 加入/移除 .active
+
+            // .title-box 同一層的 .contents-box
+            const content = e.target.parentNode.querySelector('.contents-box');
+            const height = content.dataset.height; // 從 dat-height 抓原本高度
+
+            // 判斷 .title-box 有沒有 .active
+            if(e.target.classList.contains('active')) {
+              // 有 .active，就設高
+              content.setAttribute('style', 'height: ' + height + 'px');
+            } else {
+              // 沒有，高度歸 0
+              content.setAttribute('style', 'height: 0');
+            }
+          });
+
+          // 如果 .title-box 有 data-expanded="true"，就預設開啟
+          if(t.dataset.expanded === 'true') {
+            t.click()
+          }
+        });
+
+        });
+    </script>
+    <!-- End Facebook SDK for JavaScript -->
+  </body>
+
+</html>
